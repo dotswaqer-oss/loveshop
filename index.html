@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toko Pink - Belanja Cantikmu!</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffd1e8, #ff5fa2);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+    .navbar {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      color: #fff;
+      background: linear-gradient(135deg, #ff9ac9, #ff5fa2);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+      background: #ff5fa2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-pink" href="#">Toko Pink</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="#home" class="nav-link">Beranda</a></li>
+          <li class="nav-item"><a href="#katalog" class="nav-link">Katalog</a></li>
+          <li class="nav-item"><a href="#tentang" class="nav-link">Tentang</a></li>
+          <li class="nav-item"><a href="#keranjang" class="nav-link">Keranjang</a></li>
+          <li class="nav-item"><a href="#kontak" class="nav-link">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Selamat Datang di Toko Pink!</h1>
+    <p class="lead">Temukan koleksi lucu dan estetik untuk melengkapi harimu 💖</p>
+  </section>
+
+  <!-- Katalog Produk -->
+  <section id="katalog" class="py-5 container">
+    <h2 class="text-center mb-4 fw-bold">Katalog Produk</h2>
+    <div class="row g-4" id="product-list"></div>
+  </section>
+
+  <!-- Tentang Kami -->
+  <section id="tentang" class="py-5 text-center bg-light rounded-4 mx-3 mb-4">
+    <div class="container">
+      <h2 class="fw-bold mb-3">Tentang Kami</h2>
+      <p>Toko Pink adalah toko online yang menghadirkan produk-produk lucu, estetik, dan feminin untuk menemani gaya hidupmu. Kami percaya setiap warna pink membawa kebahagiaan!</p>
+    </div>
+  </section>
+
+  <!-- Keranjang -->
+  <section id="keranjang" class="py-5 container">
+    <h2 class="text-center fw-bold mb-3">Keranjang Belanja</h2>
+    <ul id="cart" class="list-group mb-3"></ul>
+    <p class="fw-bold text-end">Total: Rp <span id="total">0</span></p>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="py-5 text-center bg-light rounded-4 mx-3 mb-5">
+    <div class="container">
+      <h2 class="fw-bold mb-3">Kontak Kami</h2>
+      <p>Email: <a href="mailto:tokopink@gmail.com">tokopink@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/tokopink.id" target="_blank">@tokopink.id</a></p>
+      <p>Alamat: Jl. Mawar No. 10, Bandung</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Toko Pink | Semua Hak Dilindungi 💕</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Daftar produk dengan gambar nyata
+    const products = [
+      {
+        id: 1,
+        name: 'Pouch Cantik',
+        price: 45000,
+        desc: 'Pouch multi-fungsi, bahan lembut',
+        img: 'https://media.istockphoto.com/id/1181147567/photo/blank-pale-pink-beautician-for-cosmetics.webp?a=1&b=1&s=612x612&w=0&k=20&c=_7LLqXhAzcQH6ZHxh8kes_ihlXw2IxeTzItjJCyk9_s='
+      },
+      {
+        id: 2,
+        name: 'Syal ',
+        price: 75000,
+        desc: 'Syal hangat, motif elegan',
+        img: 'https://media.istockphoto.com/id/2148240766/id/foto/slavic-shawl-isolated.jpg?s=612x612&w=0&k=20&c=SeFZ9ajhL8xrs00-YwP52O_sOI4_RjquZUUQTare5Wc='
+      },
+      {
+        id: 3,
+        name: 'Gelang Manik',
+        price: 30000,
+        desc: 'Gelang manik-manik, cocok hadiah',
+        img: 'https://media.istockphoto.com/id/1706027325/photo/bangladeshi-womens-jewelry.webp?a=1&b=1&s=612x612&w=0&k=20&c=o-VBoBR2vgIxXevmOYx0VqAaqlKHJafkO0GjcRhSvNo='
+      },
+      {
+        id: 4,
+        name: 'Tas Selempang',
+        price: 150000,
+        desc: 'Tas kecil untuk jalan-jalan',
+        img: 'https://media.istockphoto.com/id/673538400/id/foto/tas-wanita-kulit-dengan-latar-belakang-putih.jpg?s=612x612&w=0&k=20&c=PyGmdGYVowrzIodLcOhG-Mwcf-FphrO_tx0-FIhRf74='
+      },
+      {
+        id: 5,
+        name: 'Notebook Lucu',
+        price: 25000,
+        desc: 'Notebook A5 bergaris, sampul lucu',
+        img: 'https://images.unsplash.com/photo-1557752281-0dcc70763e98?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQ4fHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=500'
+      },
+      {
+        id: 6,
+        name: 'Pin Bros',
+        price: 15000,
+        desc: 'Pin dekoratif, bahan besi',
+        img: 'https://media.istockphoto.com/id/157579369/photo/vintage-costume-jewellery-on-white.webp?a=1&b=1&s=612x612&w=0&k=20&c=qn_gWUbCufS06PxExFkNV0z3Uxh7WazYjc-1tFQkztc='
+      }
+    ];
+
+    let cart = [];
+
+    const productList = document.getElementById('product-list');
+    const cartList = document.getElementById('cart');
+    const totalText = document.getElementById('total');
+
+    // Tampilkan produk
+    products.forEach(p => {
+      const col = document.createElement('div');
+      col.className = 'col-md-4';
+      col.innerHTML = `
+        <div class="card h-100">
+          <img src="${p.img}" class="card-img-top" alt="${p.name}">
+          <div class="card-body text-center">
+            <h5 class="card-title">${p.name}</h5>
+            <p class="card-text">${p.desc}</p>
+            <p class="fw-bold text-danger">Rp ${p.price.toLocaleString()}</p>
+            <button class="btn btn-pink btn-sm" style="background-color:#ff5fa2;color:white" onclick="addToCart(${p.id})">Tambah ke Keranjang</button>
+          </div>
+        </div>`;
+      productList.appendChild(col);
+    });
+
+    function addToCart(id) {
+      const product = products.find(p => p.id === id);
+      cart.push(product);
+      renderCart();
+    }
+
+    function renderCart() {
+      cartList.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+        li.innerHTML = `
+          ${item.name} - Rp ${item.price.toLocaleString()}
+          <button class="btn btn-sm btn-danger" onclick="removeItem(${index})">Hapus</button>`;
+        cartList.appendChild(li);
+        total += item.price;
+      });
+      totalText.textContent = total.toLocaleString();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+  </script>
+</body>
+</html>
